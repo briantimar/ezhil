@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 {{ partial "header.html" . }}
+{{ with .Params.mathjax }}
+	{{ partial "mathjax.html" }}
+{{ end }}
 <body>
 	<div class="container wrapper post">
 		{{ partial "head.html" . }}
