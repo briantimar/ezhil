@@ -6,11 +6,17 @@
 		{{ partial "head.html" . }}
 
 		<div class="post-header">
-			<h1 class="title">{{ .Title }}</h1>
+			{{- if (isset .Params "pagetitle") -}}
+				{{ .Scratch.Set "pagetitle" .Params.pagetitle }}
+			{{ else }}
+				{{ .Scratch.Set "pagetitle" .Title }}
+			{{ end }}
+			<h1 class="title">{{ .Scratch.Get "pagetitle" | safeHTML }}</h1>
 			{{ if (isset .Params "date")}}
 			<div class="meta">{{ dateFormat "Jan 2, 2006" .Date }}{{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end }}</div>
 			{{ end }}
 		</div>
+
 
 		<div class="markdown">
 			{{ .Content }}
