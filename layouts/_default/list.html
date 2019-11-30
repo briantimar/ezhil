@@ -9,7 +9,11 @@
 		{{ if isset .Data "Term" }}
 			<h1>Entries tagged - "{{ .Data.Term }}"</h1>
 		{{ else }}
-			<h1 class="page-title">{{ .Section }}</h1>
+			{{ .Scratch.Set "pagetitle" .Section }}
+			{{ if isset .Params "pagetitle"}}
+				{{ .Scratch.Set "pagetitle" .Params.pagetitle}}
+			{{ end }}
+			<h1 class="page-title">{{ .Scratch.Get "pagetitle" }}</h1>
 		{{ end }}
 
 		<ul class="posts">
