@@ -12,8 +12,10 @@
 				Recent posts
 			</h2>
 			<div class="posts">
-				{{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+				{{ $allpages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+				{{ $pages := where $allpages ".Params.hide" "=" nil }}
 				{{ range first 4 $pages }}
+				{{ .Params.hide }}
 				<div class="post">
 					<div class="meta">{{ dateFormat "Jan 2, 2006" .Date }}{{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end }}</div>
 					<a class="title" href="{{ .RelPermalink }}">{{.Title}}</a> 
