@@ -19,6 +19,7 @@
 		<ul class="posts">
 			{{- range .Data.Pages -}}
 			{{- if (in (.Site.Params.excludedTypes | default (slice "page")) .Type) -}}
+			{{- else if (and (isset .Params "hide") .Params.hide) -}}
 			{{- else -}}
 			<li class="post">
 				<a href="{{ .RelPermalink }}">{{.Title}}</a> <span class="meta">
