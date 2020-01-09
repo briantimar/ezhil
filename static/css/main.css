@@ -16,7 +16,7 @@ html,button,input,select,textarea {
     color: #333;
 }
 
-::-moz-selection {
+/* ::-moz-selection {
     background: #b3d4fc;
     text-shadow: none;
 }
@@ -24,7 +24,7 @@ html,button,input,select,textarea {
 ::selection {
     background: #b3d4fc;
     text-shadow: none;
-}
+} */
 
 hr {
     display: block;

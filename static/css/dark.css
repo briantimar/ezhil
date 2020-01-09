@@ -3,16 +3,6 @@ body {
 	background-color: #000;
 }
 
-::-moz-selection {
-    background: #666;
-    text-shadow: none
-}
-
-::selection {
-    background: #666;
-    text-shadow: none
-}
-
 hr {
     border-color: #333;
 }
